@@ -13,7 +13,7 @@ const CustomInput = (props) => {
     secondaryIconName,
     iconSize,
     secondaryIconSize,
-    errorText
+    errorText,
   } = props;
 
   const [value, setValue] = useState("");
@@ -26,7 +26,12 @@ const CustomInput = (props) => {
     <View styles={customInputStyles.inputContainer}>
       <Text style={customInputStyles.labelText}>{labelText}</Text>
       <View style={customInputStyles.formInput}>
-        <props.iconType style={customInputStyles.icon} name={iconName} size={iconSize} color={iconColor} />
+        <props.iconType
+          style={customInputStyles.icon}
+          name={iconName}
+          size={iconSize}
+          color={iconColor}
+        />
         <TextInput
           {...props}
           style={customInputStyles.inputStyles}

@@ -8,7 +8,7 @@ export const customInputStyles = StyleSheet.create({
   formInput: {
     width: "100%",
     borderColor: Colors.black,
-    backgroundColor:Colors.offWhite,
+    backgroundColor: Colors.offWhite,
     borderWidth: 1,
     display: "flex",
     flexDirection: "row",
@@ -18,16 +18,16 @@ export const customInputStyles = StyleSheet.create({
   },
   inputStyles: {
     flex: 1,
-    letterSpacing:0.5,
+    letterSpacing: 0.5,
   },
-  labelText:{
-    fontFamily:'roboto-black',
-    letterSpacing:0.3,
+  labelText: {
+    fontFamily: "roboto-black",
+    letterSpacing: 0.3,
   },
-  errorText:{
-    color:Colors?.darkRed,
+  errorText: {
+    color: Colors?.darkRed,
   },
-  icon:{
-    marginRight:5,
-  }
+  icon: {
+    marginRight: 5,
+  },
 });

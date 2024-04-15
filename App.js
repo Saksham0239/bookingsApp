@@ -14,17 +14,18 @@ export default function App() {
   }
   return (
     <View style={styles.container} onLayout={onLayoutLoadHandler}>
-      <CustomInput labelText="first-name"
-      iconType={Ionicons}
-      iconName="person-circle-sharp"
-      iconSize={20}
-      iconColor="black"
-      secondaryIconType={Ionicons}
-      secondaryIconName="person-circle-outline"
-      secondaryIconSize={20}
-      secondaryIconColor="black"
-      errorText="please enter correct name"
-       />
+      <CustomInput
+        labelText="first-name"
+        iconType={Ionicons}
+        iconName="person-circle-sharp"
+        iconSize={20}
+        iconColor="black"
+        secondaryIconType={Ionicons}
+        secondaryIconName="person-circle-outline"
+        secondaryIconSize={20}
+        secondaryIconColor="black"
+        errorText="please enter correct name"
+      />
     </View>
   );
 }
@@ -33,6 +34,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    padding:20,
+    padding: 20,
   },
 });
