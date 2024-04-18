@@ -5,3 +5,15 @@ export const Colors = {
   offWhite: "#FAF9F6",
   white: "#FFFFFF",
 };
+
+export const RouteNames = {
+  mainScreen: "mainScreen",
+  userRouteNames: {
+    userHome: "userHome",
+    userSettings: "userSettings",
+  },
+  sellerRouteNames: {
+    sellerHome: "sellerHome",
+    sellerSettings: "sellerSettings",
+  },
+};

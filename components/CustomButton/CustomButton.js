@@ -4,7 +4,13 @@ import { customButtonStyles } from "./CustomButton.styles";
 import { GestureDetector, Gesture } from "react-native-gesture-handler";
 import { Colors } from "../../constants/commonConstants";
 
-const CustomButton = ({ title, clickHandler, containerStyles, textStyles,bg=Colors.darkBlue }) => {
+const CustomButton = ({
+  title,
+  clickHandler,
+  containerStyles,
+  textStyles,
+  bg = Colors.darkBlue,
+}) => {
   const [bgColor, setBgColor] = useState(bg);
   const [fontColor, setFontColor] = useState(Colors.white);
 
@@ -45,7 +51,6 @@ const CustomButton = ({ title, clickHandler, containerStyles, textStyles,bg=Colo
         </Text>
       </Pressable>
     </GestureDetector>
-
   );
 };
 
