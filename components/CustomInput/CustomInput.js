@@ -2,6 +2,7 @@ import { TextInput, View, Text } from "react-native";
 import { useState } from "react";
 import { customInputStyles } from "./CustomInputStyles";
 import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "../../constants/commonConstants";
 
 const CustomInput = (props) => {
   const {
@@ -26,12 +27,14 @@ const CustomInput = (props) => {
     <View styles={customInputStyles.inputContainer}>
       <Text style={customInputStyles.labelText}>{labelText}</Text>
       <View style={customInputStyles.formInput}>
-        <props.iconType
-          style={customInputStyles.icon}
-          name={iconName}
-          size={iconSize}
-          color={iconColor}
-        />
+        {props.iconType && (
+          <props.iconType
+            style={customInputStyles.icon}
+            name={iconName ? iconName : "person-circle-outline"}
+            size={iconSize ? iconSize : 24}
+            color={iconColor ? iconColor : Colors.black}
+          />
+        )}
         <TextInput
           {...props}
           style={customInputStyles.inputStyles}
@@ -40,9 +43,11 @@ const CustomInput = (props) => {
         />
         {secondaryIconType && (
           <props.secondaryIconType
-            name={secondaryIconName}
-            size={secondaryIconSize}
-            color={secondaryIconColor}
+            name={
+              secondaryIconName ? secondaryIconName : "person-circle-outline"
+            }
+            size={secondaryIconSize ? secondaryIconSize : 24}
+            color={secondaryIconColor ? secondaryIconColor : Colors.black}
           />
         )}
       </View>

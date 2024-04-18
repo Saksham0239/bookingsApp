@@ -4,6 +4,8 @@ export const Colors = {
   darkBlue: "#003b95",
   offWhite: "#FAF9F6",
   white: "#FFFFFF",
+  lightBlue: "#add8e6",
+  linkBlue: "0000EE",
 };
 
 export const RouteNames = {
@@ -11,9 +13,18 @@ export const RouteNames = {
   userRouteNames: {
     userHome: "userHome",
     userSettings: "userSettings",
+    userLogin: "userLogin",
+    userSignUp: "userSignUp",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",
     sellerSettings: "sellerSettings",
+    sellerLogin: "sellerLogin",
+    sellerSignUp: "sellerSignUp",
   },
+};
+
+export const UserType = {
+  User: "user",
+  Seller: "seller",
 };

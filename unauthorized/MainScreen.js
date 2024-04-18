@@ -16,13 +16,13 @@ const MainScreen = () => {
       <CustomButton
         containerStyles={{ marginTop: 50 }}
         title="User Account"
-        clickHandler={() => navigate(RouteNames?.userRouteNames?.userHome)}
+        clickHandler={() => navigate(RouteNames?.userRouteNames?.userLogin)}
         bg={Colors.black}
       />
       <CustomButton
         containerStyles={{ marginTop: 50 }}
         title="Seller Account"
-        clickHandler={() => navigate(RouteNames?.sellerRouteNames?.sellerHome)}
+        clickHandler={() => navigate(RouteNames?.sellerRouteNames?.sellerLogin)}
         bg={Colors.black}
       />
     </View>
