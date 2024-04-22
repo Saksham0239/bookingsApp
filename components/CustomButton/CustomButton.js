@@ -10,42 +10,64 @@ const CustomButton = ({
   containerStyles,
   textStyles,
   bg = Colors.darkBlue,
+  disabled = false,
 }) => {
   const [bgColor, setBgColor] = useState(bg);
   const [fontColor, setFontColor] = useState(Colors.white);
 
   const gestureTap = Gesture.Tap().onBegin(() => {
-    setBgColor(Colors.white);
-    setFontColor(bg);
+    if (!disabled) {
+      setBgColor(Colors.white);
+      setFontColor(bg);
+    }
   });
   gestureTap.onEnd(() => {
-    setBgColor(bg);
-    setFontColor(Colors.white);
+    if (!disabled) {
+      setBgColor(bg);
+      setFontColor(Colors.white);
+    }
   });
 
   const gestureLongPress = Gesture.LongPress();
 
   gestureLongPress.onEnd(() => {
-    setBgColor(bg);
-    setFontColor(Colors.white);
+    if (!disabled) {
+      setBgColor(bg);
+      setFontColor(Colors.white);
+    }
   });
 
   return (
     <GestureDetector gesture={Gesture.Race(gestureTap, gestureLongPress)}>
       <Pressable
-        style={{
-          ...customButtonStyles.button,
-          ...containerStyles,
-          ...{ backgroundColor: bgColor },
-        }}
-        onPress={clickHandler}
+        style={
+          !disabled
+            ? {
+                ...customButtonStyles.button,
+                ...containerStyles,
+                ...{ backgroundColor: bgColor },
+              }
+            : {
+                ...customButtonStyles.button,
+                ...containerStyles,
+                ...{ backgroundColor: Colors?.lightGrey },
+              }
+        }
+        onPress={disabled ? () => {} : clickHandler}
       >
         <Text
-          style={{
-            ...customButtonStyles.text,
-            ...textStyles,
-            ...{ color: fontColor },
-          }}
+          style={
+            !disabled
+              ? {
+                  ...customButtonStyles.text,
+                  ...textStyles,
+                  ...{ color: fontColor },
+                }
+              : {
+                  ...customButtonStyles.text,
+                  ...{ color: Colors.black },
+                }
+          }
         >
           {title}
         </Text>

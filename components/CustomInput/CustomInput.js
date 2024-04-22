@@ -6,6 +6,7 @@ import { Colors } from "../../constants/commonConstants";
 
 const CustomInput = (props) => {
   const {
+    containerStyles,
     labelText,
     iconName,
     iconColor,
@@ -15,16 +16,12 @@ const CustomInput = (props) => {
     iconSize,
     secondaryIconSize,
     errorText,
+    onChange,
+    value,
   } = props;
 
-  const [value, setValue] = useState("");
-
-  const onChangeText = (txt) => {
-    setValue(txt);
-  };
-
   return (
-    <View styles={customInputStyles.inputContainer}>
+    <View styles={{ ...customInputStyles.inputContainer, ...containerStyles }}>
       <Text style={customInputStyles.labelText}>{labelText}</Text>
       <View style={customInputStyles.formInput}>
         {props.iconType && (
@@ -39,7 +36,7 @@ const CustomInput = (props) => {
           {...props}
           style={customInputStyles.inputStyles}
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={onChange}
         />
         {secondaryIconType && (
           <props.secondaryIconType
