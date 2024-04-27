@@ -3,19 +3,27 @@ import { Colors } from "../../constants/commonConstants";
 
 export const searchBarStyles = StyleSheet.create({
   searchBarContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "column",
     fontSize: 20,
+    width: "100%",
+    height: "100%",
   },
-  searchBarInput: {
+  innerContainer: {
+    height: 60,
+    flexDirection: "row",
     borderColor: Colors.lightBlue,
     backgroundColor: Colors.offWhite,
     borderWidth: 1,
     width: "100%",
-    marginRight: 8,
     padding: 8,
     borderRadius: 30,
     fontSize: 15,
-    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconStyles: {
+    marginRight: 6,
+  },
+  searchBarInput: {
+    flex: 1,
   },
 });

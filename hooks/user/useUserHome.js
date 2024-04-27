@@ -1,11 +1,13 @@
 import { useEffect, useReducer } from "react";
-import { Alert , Keyboard} from "react-native";
+import { Alert, Keyboard } from "react-native";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import { useNavigation } from "@react-navigation/native";
+import { generateSearchData } from "../../components/SearchBar/SearchData";
 
 const initialState = {
   cart: [],
   searchText: "",
+  searchData:[],
 };
 
 const useUserHome = () => {
@@ -16,7 +18,7 @@ const useUserHome = () => {
   }, []);
 
   const [state, dispatchState] = useReducer(defaultStateReducer, initialState);
-  const { searchText } = state;
+  const { searchText,searchData } = state;
 
   const backButtonHandler = () => {
     addListener("beforeRemove", (e) => {
@@ -40,30 +42,56 @@ const useUserHome = () => {
     });
   };
 
+  const filterSearchData = (text,data)=>{
+     const filteredArr =  data.filter((el)=>{
+        return el.title.toLowerCase().includes(text);
+      });
+
+      return filteredArr;
+  } 
+
   const onChangeSearchText = (text) => {
+
+    //api call
+    const data = generateSearchData();
+    const filteredData = filterSearchData(text,data);
+
     dispatchState({
       payload: {
         searchText: text,
+        searchData:filteredData,
       },
     });
-
-    console.log(text);
   };
 
   const onCancelButtonClick = () => {
     dispatchState({
       payload: {
         searchText: "",
+        searchData:generateSearchData(),
       },
     });
     Keyboard.dismiss();
   };
 
+  const onTextInputFocus = ()=>{
+    console.log('text focused');
+    const data = generateSearchData();
+
+    dispatchState({
+      payload:{
+        searchData:data,
+      }
+    });
+  }
+
   return {
+    searchText,
+    searchData,
     backButtonHandler,
     onChangeSearchText,
-    searchText,
     onCancelButtonClick,
+    onTextInputFocus,
   };
 };
 

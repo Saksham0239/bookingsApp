@@ -6,9 +6,10 @@ import { AuthContext } from "../../../authContext/AuthContextProvider";
 import useUserHome from "../../../hooks/user/useUserHome";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import { homeStyles } from "./Home.styles";
+import { generateSearchData } from "../../../components/SearchBar/SearchData";
 
 const Home = () => {
-  const { onChangeSearchText, searchText, onCancelButtonClick } = useUserHome();
+  const { searchText,searchData,onChangeSearchText, onCancelButtonClick,onTextInputFocus } = useUserHome();
   const { authState } = useContext(AuthContext);
   const { isAuthorized } = authState;
   const { navigate } = useNavigation();
@@ -25,6 +26,8 @@ const Home = () => {
         onChangeSearchText={onChangeSearchText}
         searchText={searchText}
         onCancelButtonClick={onCancelButtonClick}
+        filteredData={searchData}
+        onTextFocus={onTextInputFocus}
       />
     </View>
   );
