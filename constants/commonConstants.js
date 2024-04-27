@@ -7,6 +7,7 @@ export const Colors = {
   lightBlue: "#add8e6",
   linkBlue: "0000EE",
   lightGrey: "#D3D3D3",
+  cobaltBlue: "#079CFF",
 };
 
 export const RouteNames = {

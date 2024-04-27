@@ -4,7 +4,6 @@ import { Colors } from "../../constants/commonConstants";
 export const customInputStyles = StyleSheet.create({
   inputContainer: {
     width: "100%",
-    // margin:20,
   },
   formInput: {
     width: "100%",

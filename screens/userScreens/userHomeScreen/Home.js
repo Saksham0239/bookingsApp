@@ -1,21 +1,31 @@
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { RouteNames } from "../../../constants/commonConstants";
+import { AuthContext } from "../../../authContext/AuthContextProvider";
+import useUserHome from "../../../hooks/user/useUserHome";
+import SearchBar from "../../../components/SearchBar/SearchBar";
+import { homeStyles } from "./Home.styles";
 
 const Home = () => {
-  const isAuthorized = false;
+  const { onChangeSearchText, searchText, onCancelButtonClick } = useUserHome();
+  const { authState } = useContext(AuthContext);
+  const { isAuthorized } = authState;
   const { navigate } = useNavigation();
 
   useEffect(() => {
     if (!isAuthorized) {
-      navigate(RouteNames?.userRouteNames?.userLogin);
+      navigate(RouteNames?.mainScreen);
     }
   }, [isAuthorized]);
 
   return (
-    <View>
-      <Text>user Home screen</Text>
+    <View style={homeStyles?.container}>
+      <SearchBar
+        onChangeSearchText={onChangeSearchText}
+        searchText={searchText}
+        onCancelButtonClick={onCancelButtonClick}
+      />
     </View>
   );
 };

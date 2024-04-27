@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/userScreens/userHomeScreen/Home";
@@ -12,74 +12,73 @@ import SellerSignUpScreen from "../screens/sellerScreens/sellerSignUpScreen/Sell
 import SellerLoginScreen from "../screens/sellerScreens/sellerLoginScreen/SellerLoginScreen";
 import UserSignUpScreen from "../screens/userScreens/userSignUpScreen/UserSignUpScreen";
 import UserLoginScreen from "../screens/userScreens/userLoginScreen/UserLoginScreen";
+import { AuthContext } from "../authContext/AuthContextProvider";
 
 const Stack = createStackNavigator();
 
-const contextObj = {
-  isAuthorized: false,
-  userType: UserType.User,
-};
-
 const MainStackNavigator = () => {
+  const { authState } = React.useContext(AuthContext);
+  const { userType } = authState;
+
+  const getInitialRouteName = () => {
+    if (userType === UserType?.User) {
+      return RouteNames?.userRouteNames?.userHome;
+    } else if (userType === UserType?.Seller) {
+      return RouteNames?.sellerRouteNames?.sellerHome;
+    } else {
+      return RouteNames?.mainScreen;
+    }
+  };
+
   return (
     <NavigationContainer style={navigatorStyles.container}>
-      {!contextObj.isAuthorized ? (
-        <Stack.Navigator initialRouteName={RouteNames?.mainScreen}>
-          <Stack.Screen
-            name={RouteNames?.mainScreen}
-            component={MainScreen}
-            options={{ title: "EaseWithBookings" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.userRouteNames?.userSignUp}
-            component={UserSignUpScreen}
-            options={{ title: "User SignUp" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.userRouteNames?.userLogin}
-            component={UserLoginScreen}
-            options={{ title: "User Login" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.sellerRouteNames?.sellerSignUp}
-            component={SellerSignUpScreen}
-            options={{ title: "Seller SignUp" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.sellerRouteNames?.sellerLogin}
-            component={SellerLoginScreen}
-            options={{ title: "Seller Login" }}
-          />
-        </Stack.Navigator>
-      ) : contextObj?.userType === UserType?.User ? (
-        <Stack.Navigator
-          initialRouteName={RouteNames?.userRouteNames?.userHome}
-        >
-          <Stack.Screen
-            name={RouteNames?.userRouteNames?.userHome}
-            component={Home}
-            options={{ title: "Home" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.userRouteNames?.userSettings}
-            component={Settings}
-            options={{ title: "Settings" }}
-          />
-        </Stack.Navigator>
-      ) : (
-        <Stack.Navigator initialRouteName={RouteNames?.mainScreen}>
-          <Stack.Screen
-            name={RouteNames?.sellerRouteNames?.sellerHome}
-            component={HomeSeller}
-            options={{ title: "Home" }}
-          />
-          <Stack.Screen
-            name={RouteNames?.sellerRouteNames?.sellerSettings}
-            component={SettingsSeller}
-            options={{ title: "Settings" }}
-          />
-        </Stack.Navigator>
-      )}
+      <Stack.Navigator initialRouteName={RouteNames?.mainScreen}>
+        <Stack.Screen
+          name={RouteNames?.mainScreen}
+          component={MainScreen}
+          options={{ title: "EaseWithBookings" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.userRouteNames?.userSignUp}
+          component={UserSignUpScreen}
+          options={{ title: "User SignUp" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.userRouteNames?.userLogin}
+          component={UserLoginScreen}
+          options={{ title: "User Login" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.sellerRouteNames?.sellerSignUp}
+          component={SellerSignUpScreen}
+          options={{ title: "Seller SignUp" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.sellerRouteNames?.sellerLogin}
+          component={SellerLoginScreen}
+          options={{ title: "Seller Login" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.userRouteNames?.userHome}
+          component={Home}
+          options={{ title: "Home" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.userRouteNames?.userSettings}
+          component={Settings}
+          options={{ title: "Settings" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.sellerRouteNames?.sellerHome}
+          component={HomeSeller}
+          options={{ title: "Home" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.sellerRouteNames?.sellerSettings}
+          component={SettingsSeller}
+          options={{ title: "Settings" }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

@@ -1,6 +1,10 @@
-import { useReducer } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import { validateEmail, validatePassword } from "../../utils/ValidationUtils";
+import { AuthContext } from "../../authContext/AuthContextProvider";
+import { UserType } from "../../constants/commonConstants";
+import { useNavigation } from "@react-navigation/native";
+import { RouteNames } from "../../constants/commonConstants";
 
 const initialState = {
   email: "",
@@ -10,10 +14,11 @@ const initialState = {
 };
 
 const useUserLoginScreen = () => {
+  const { navigate } = useNavigation();
+  const { authState, dispatchAuthState } = useContext(AuthContext);
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
 
   const { email, password, emailError, passwordError } = state;
-
   const checkFormValidity = () => {
     if (emailError === "" && passwordError === "" && email && password) {
       return true;
@@ -21,10 +26,20 @@ const useUserLoginScreen = () => {
     return false;
   };
 
+  useEffect(() => {
+    if (authState?.isAuthorized && authState?.userType === UserType?.User) {
+      navigate(RouteNames?.userRouteNames?.userHome);
+    }
+  }, [authState?.userType]);
+
   const submitLoginForm = () => {
-    //api conformation
-    //navigate to userHome
-    // navigate(RouteNames?.userRouteNames?.userHome);
+    dispatchAuthState({
+      payload: {
+        isAuthorized: true,
+        userType: UserType?.User,
+      },
+    });
+    navigate(RouteNames?.userRouteNames?.userHome);
     console.log("submitted");
   };
 
@@ -33,7 +48,7 @@ const useUserLoginScreen = () => {
     dispatch({
       payload: {
         emailError: validationMsg,
-        email:value
+        email: value,
       },
     });
   };
@@ -41,7 +56,7 @@ const useUserLoginScreen = () => {
   const onChangePassword = (value) => {
     const validationMsg = validatePassword(value);
     dispatch({
-      payload: { passwordError: validationMsg , password:value},
+      payload: { passwordError: validationMsg, password: value },
     });
   };
 
