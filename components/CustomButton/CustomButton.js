@@ -15,7 +15,7 @@ const CustomButton = ({
   const [bgColor, setBgColor] = useState(bg);
   const [fontColor, setFontColor] = useState(Colors.white);
 
-  const gestureTap = Gesture.Tap().onBegin(() => {
+  const gestureTap = Gesture.Tap().runOnJS(true).onBegin(() => {
     if (!disabled) {
       setBgColor(Colors.white);
       setFontColor(bg);
@@ -29,6 +29,8 @@ const CustomButton = ({
   });
 
   const gestureLongPress = Gesture.LongPress();
+
+  gestureLongPress.runOnJS(true);
 
   gestureLongPress.onEnd(() => {
     if (!disabled) {

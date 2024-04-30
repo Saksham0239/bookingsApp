@@ -2,6 +2,7 @@ import { View, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { searchBarStyles } from "./SearchBar.styles";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import Item from "./Item";
+import { useEffect, useRef } from "react";
 
 const SearchBar = ({
   onChangeSearchText,
@@ -9,7 +10,17 @@ const SearchBar = ({
   onCancelButtonClick,
   filteredData,
   onTextFocus,
+  searching,
 }) => {
+
+  const textSearchRef = useRef(null);
+
+  useEffect(()=>{
+    if(searching){
+      textSearchRef.current.focus();
+    }
+  });
+
   const renderItemsFlatList = ({ item }) => {
     return <Item item={item} />;
   };
@@ -24,6 +35,7 @@ const SearchBar = ({
           color="black"
         />
         <TextInput
+          ref={textSearchRef}
           onFocus={onTextFocus}
           placeholder="search here"
           value={searchText}
@@ -34,7 +46,7 @@ const SearchBar = ({
           <Entypo name="cross" size={24} color="black" />
         </TouchableOpacity>
       </View>
-      {filteredData && (
+      {filteredData  && searching && (
         <FlatList
           data={filteredData}
           renderItem={renderItemsFlatList}

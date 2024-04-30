@@ -1,24 +1,27 @@
 import { useEffect, useReducer } from "react";
-import { Alert, Keyboard } from "react-native";
+import { Alert, Keyboard, View } from "react-native";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import { useNavigation } from "@react-navigation/native";
 import { generateSearchData } from "../../components/SearchBar/SearchData";
+
 
 const initialState = {
   cart: [],
   searchText: "",
   searchData:[],
+  searching:false,
 };
 
 const useUserHome = () => {
   const { addListener, dispatch } = useNavigation();
+  const [state, dispatchState] = useReducer(defaultStateReducer, initialState);
+  const { searchText,searchData,searching } = state;
 
   useEffect(() => {
     backButtonHandler();
+    console.log('rerendering');
   }, []);
 
-  const [state, dispatchState] = useReducer(defaultStateReducer, initialState);
-  const { searchText,searchData } = state;
 
   const backButtonHandler = () => {
     addListener("beforeRemove", (e) => {
@@ -68,7 +71,8 @@ const useUserHome = () => {
     dispatchState({
       payload: {
         searchText: "",
-        searchData:generateSearchData(),
+        searchData:[],
+        searching:false,
       },
     });
     Keyboard.dismiss();
@@ -81,6 +85,7 @@ const useUserHome = () => {
     dispatchState({
       payload:{
         searchData:data,
+        searching:true,
       }
     });
   }
@@ -88,6 +93,7 @@ const useUserHome = () => {
   return {
     searchText,
     searchData,
+    searching,
     backButtonHandler,
     onChangeSearchText,
     onCancelButtonClick,

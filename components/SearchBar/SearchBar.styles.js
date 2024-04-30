@@ -6,7 +6,6 @@ export const searchBarStyles = StyleSheet.create({
     flexDirection: "column",
     fontSize: 20,
     width: "100%",
-    height: "100%",
   },
   innerContainer: {
     height: 60,
