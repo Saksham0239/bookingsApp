@@ -12,11 +12,10 @@ const SearchBar = ({
   onTextFocus,
   searching,
 }) => {
-
   const textSearchRef = useRef(null);
 
-  useEffect(()=>{
-    if(searching){
+  useEffect(() => {
+    if (searching) {
       textSearchRef.current.focus();
     }
   });
@@ -46,7 +45,7 @@ const SearchBar = ({
           <Entypo name="cross" size={24} color="black" />
         </TouchableOpacity>
       </View>
-      {filteredData  && searching && (
+      {filteredData && searching && (
         <FlatList
           data={filteredData}
           renderItem={renderItemsFlatList}

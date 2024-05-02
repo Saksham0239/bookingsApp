@@ -10,7 +10,7 @@ export const Colors = {
   linkBlue: "0000EE",
   lightGrey: "#D3D3D3",
   cobaltBlue: "#079CFF",
-  textColor:"#222",
+  textColor: "#222",
 };
 
 export const RouteNames = {
@@ -34,6 +34,6 @@ export const UserType = {
   Seller: "seller",
 };
 
-export const SLIDER_WIDTH = Dimensions.get('window').width;
+export const SLIDER_WIDTH = Dimensions.get("window").width;
 
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH);

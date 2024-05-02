@@ -15,12 +15,14 @@ const CustomButton = ({
   const [bgColor, setBgColor] = useState(bg);
   const [fontColor, setFontColor] = useState(Colors.white);
 
-  const gestureTap = Gesture.Tap().runOnJS(true).onBegin(() => {
-    if (!disabled) {
-      setBgColor(Colors.white);
-      setFontColor(bg);
-    }
-  });
+  const gestureTap = Gesture.Tap()
+    .runOnJS(true)
+    .onBegin(() => {
+      if (!disabled) {
+        setBgColor(Colors.white);
+        setFontColor(bg);
+      }
+    });
   gestureTap.onEnd(() => {
     if (!disabled) {
       setBgColor(bg);

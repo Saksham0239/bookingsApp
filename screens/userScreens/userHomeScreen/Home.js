@@ -1,17 +1,23 @@
-import { View, Text,ScrollView } from "react-native";
+import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useContext, useEffect } from "react";
 import { RouteNames } from "../../../constants/commonConstants";
 import { AuthContext } from "../../../authContext/AuthContextProvider";
 import useUserHome from "../../../hooks/user/useUserHome";
 import SearchBar from "../../../components/SearchBar/SearchBar";
-import { homeStyles } from "./Home.styles";
 import CarouselCards from "../../../components/Carousel/CarouselCards";
 import HomeWrapper from "./HomeWrapper";
 
-
 const Home = () => {
-  const { searchText,searchData,searching,onChangeSearchText, onCancelButtonClick,onTextInputFocus } = useUserHome();
+  const {
+    searchText,
+    searchData,
+    searching,
+    onChangeSearchText,
+    onCancelButtonClick,
+    onTextInputFocus,
+  } = useUserHome();
+  
   const { authState } = useContext(AuthContext);
   const { isAuthorized } = authState;
   const { navigate } = useNavigation();
@@ -24,7 +30,7 @@ const Home = () => {
 
   return (
     <HomeWrapper searching={searching}>
-    {/* <View> */}
+      {/* <View> */}
       <SearchBar
         onChangeSearchText={onChangeSearchText}
         searchText={searchText}
@@ -33,9 +39,12 @@ const Home = () => {
         onTextFocus={onTextInputFocus}
         searching={searching}
       />
-      {!searching &&
-        <CarouselCards />
-      }
+      {!searching && (
+        <>
+          <Text></Text>
+          <CarouselCards />
+        </>
+      )}
       {/* </View> */}
     </HomeWrapper>
   );

@@ -61,7 +61,7 @@ const MainStackNavigator = () => {
         <Stack.Screen
           name={RouteNames?.userRouteNames?.userHome}
           component={Home}
-          options={{ title: "Home" }}
+          options={{ title: "Home", headerShown: false }}
         />
         <Stack.Screen
           name={RouteNames?.userRouteNames?.userSettings}

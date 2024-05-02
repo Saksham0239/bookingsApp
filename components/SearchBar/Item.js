@@ -1,6 +1,6 @@
-import { StyleSheet, Text,TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Colors } from "../../constants/commonConstants";
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 
 const Item = ({ item }) => {
   return (
@@ -17,13 +17,13 @@ const itemStyles = StyleSheet.create({
   container: {
     padding: 5,
     backgroundColor: Colors?.offWhite,
-    borderBottomColor:Colors?.lightGrey,
-    borderBottomWidth:1,
-    flexDirection:'row',
+    borderBottomColor: Colors?.lightGrey,
+    borderBottomWidth: 1,
+    flexDirection: "row",
   },
-  text:{
-    fontSize:15,
-    fontFamily:'roboto-medium',
-    flex:1,
-  }
+  text: {
+    fontSize: 15,
+    fontFamily: "roboto-medium",
+    flex: 1,
+  },
 });
