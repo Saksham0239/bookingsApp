@@ -3,6 +3,7 @@ import { useState } from "react";
 import { customInputStyles } from "./CustomInputStyles";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "../../constants/commonConstants";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const CustomInput = (props) => {
   const {
@@ -18,6 +19,7 @@ const CustomInput = (props) => {
     errorText,
     onChange,
     value,
+    toggleShowPassword,
   } = props;
 
   return (
@@ -39,13 +41,15 @@ const CustomInput = (props) => {
           onChangeText={onChange}
         />
         {secondaryIconType && (
-          <props.secondaryIconType
-            name={
-              secondaryIconName ? secondaryIconName : "person-circle-outline"
-            }
-            size={secondaryIconSize ? secondaryIconSize : 24}
-            color={secondaryIconColor ? secondaryIconColor : Colors.black}
-          />
+          <TouchableOpacity onPress={toggleShowPassword}>
+            <props.secondaryIconType
+              name={
+                secondaryIconName ? secondaryIconName : "person-circle-outline"
+              }
+              size={secondaryIconSize ? secondaryIconSize : 24}
+              color={secondaryIconColor ? secondaryIconColor : Colors.black}
+            />
+          </TouchableOpacity>
         )}
       </View>
       <Text style={customInputStyles.errorText}>{errorText}</Text>

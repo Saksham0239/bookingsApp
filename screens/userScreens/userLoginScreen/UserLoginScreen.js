@@ -16,8 +16,10 @@ const UserLoginScreen = () => {
     password,
     emailError,
     passwordError,
+    showPassword,
     onChangeEmail,
     onChangePassword,
+    toggleShowPassword,
   } = useUserLoginScreen();
   return (
     <View style={userLoginScreenStyles.container}>
@@ -42,16 +44,17 @@ const UserLoginScreen = () => {
         <CustomInput
           labelText="password"
           iconName="lock1"
-          secureTextEntry={true}
+          secureTextEntry={!showPassword}
           iconType={AntDesign}
           iconSize={20}
           iconColor="black"
           secondaryIconType={Entypo}
-          secondaryIconName="eye"
+          secondaryIconName={showPassword ? "eye-with-line" :"eye"}
           secondaryIconSize={20}
           value={password}
           onChange={onChangePassword}
           errorText={passwordError}
+          toggleShowPassword={toggleShowPassword}
         />
       </View>
       <Text>

@@ -1,10 +1,13 @@
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import {
   validateEmail,
   validatePassword,
   validateText,
 } from "../../utils/ValidationUtils";
+import { useNavigation } from "@react-navigation/native";
+import { RouteNames, UserType } from "../../constants/commonConstants";
+import { AuthContext } from "../../authContext/AuthContextProvider";
 
 const initialState = {
   firstName: "",
@@ -15,11 +18,12 @@ const initialState = {
   lastNameError: "",
   emailError: "",
   passwordError: "",
+  showPassword:false,
 };
 
 const useUserSignUpScreen = () => {
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
-
+  const {navigate} = useNavigation();
   const {
     firstName,
     lastName,
@@ -29,7 +33,9 @@ const useUserSignUpScreen = () => {
     lastNameError,
     emailError,
     passwordError,
+    showPassword
   } = state;
+  const {dispatchAuthState} = useContext(AuthContext);
 
   const checkFormValidity = () => {
     if (
@@ -48,9 +54,13 @@ const useUserSignUpScreen = () => {
   };
 
   const submitSignUpForm = () => {
-    //api conformation
-    //navigate to userHome
-    // navigate(RouteNames?.userRouteNames?.userHome);
+    dispatchAuthState({
+      payload: {
+        isAuthorized: true,
+        userType: UserType?.User,
+      },
+    });
+    navigate(RouteNames?.userRouteNames?.userHomeNavigator);
     console.log("submitted");
   };
 
@@ -91,6 +101,14 @@ const useUserSignUpScreen = () => {
     });
   };
 
+  const toggleShowPassword = () =>{
+    dispatch({
+      payload:{
+        showPassword:!showPassword,
+      }
+    })
+  }
+
   return {
     firstName,
     lastName,
@@ -100,12 +118,14 @@ const useUserSignUpScreen = () => {
     lastNameError,
     emailError,
     passwordError,
+    showPassword,
     submitSignUpForm,
     checkFormValidity,
     onChangeEmail,
     onChangePassword,
     onChangeFirstName,
     onChangeLastName,
+    toggleShowPassword,
   };
 };
 

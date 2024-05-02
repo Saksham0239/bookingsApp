@@ -20,11 +20,14 @@ const UserSignUpScreen = () => {
     lastName,
     email,
     password,
+    showPassword,
     onChangeEmail,
     onChangeFirstName,
     onChangeLastName,
     onChangePassword,
     checkFormValidity,
+    submitSignUpForm,
+    toggleShowPassword,
     emailError,
     lastNameError,
     firstNameError,
@@ -74,16 +77,17 @@ const UserSignUpScreen = () => {
       <CustomInput
         labelText="password"
         iconName="lock1"
-        secureTextEntry={true}
+        secureTextEntry={!showPassword}
         iconType={AntDesign}
         iconSize={20}
         iconColor="black"
         secondaryIconType={Entypo}
-        secondaryIconName="eye"
+        secondaryIconName={showPassword ? 'eye-with-line':"eye"}
         secondaryIconSize={20}
         value={password}
         onChange={onChangePassword}
         errorText={passwordError}
+        toggleShowPassword={toggleShowPassword}
       />
 
       <Text>
@@ -96,6 +100,7 @@ const UserSignUpScreen = () => {
         </Text>
       </Text>
       <CustomButton
+        clickHandler={submitSignUpForm}
         disabled={!checkFormValidity()}
         title="Sign Up"
         containerStyles={{ marginTop: 10 }}

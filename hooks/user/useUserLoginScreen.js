@@ -11,6 +11,7 @@ const initialState = {
   password: "",
   emailError: "",
   passwordError: "",
+  showPassword:false,
 };
 
 const useUserLoginScreen = () => {
@@ -18,7 +19,7 @@ const useUserLoginScreen = () => {
   const { authState, dispatchAuthState } = useContext(AuthContext);
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
 
-  const { email, password, emailError, passwordError } = state;
+  const { email, password, emailError, passwordError, showPassword } = state;
   const checkFormValidity = () => {
     if (emailError === "" && passwordError === "" && email && password) {
       return true;
@@ -60,15 +61,25 @@ const useUserLoginScreen = () => {
     });
   };
 
+  const toggleShowPassword = ()=>{
+    dispatch({
+      payload:{
+        showPassword:!showPassword,
+      }
+    })
+  }
+
   return {
     email,
     password,
     emailError,
     passwordError,
+    showPassword,
     submitLoginForm,
     checkFormValidity,
     onChangeEmail,
     onChangePassword,
+    toggleShowPassword,
   };
 };
 
