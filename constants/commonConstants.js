@@ -16,10 +16,13 @@ export const Colors = {
 export const RouteNames = {
   mainScreen: "mainScreen",
   userRouteNames: {
+    userHomeNavigator: "userHomeNavigator",
     userHome: "userHome",
     userSettings: "userSettings",
     userLogin: "userLogin",
     userSignUp: "userSignUp",
+    userCart: "userCart",
+    userMenu:"userMenu",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",

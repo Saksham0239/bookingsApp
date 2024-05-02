@@ -2,34 +2,20 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/userScreens/userHomeScreen/Home";
 import Settings from "../screens/userScreens/userSettingsScreen/Settings";
 import HomeSeller from "../screens/sellerScreens/sellerHomeScreen/Home";
 import SettingsSeller from "../screens/sellerScreens/sellerSettingsScreen/Settings";
-import { RouteNames, UserType } from "../constants/commonConstants";
+import { RouteNames } from "../constants/commonConstants";
 import MainScreen from "../unauthorized/MainScreen";
 import SellerSignUpScreen from "../screens/sellerScreens/sellerSignUpScreen/SellerSignUpScreen";
 import SellerLoginScreen from "../screens/sellerScreens/sellerLoginScreen/SellerLoginScreen";
 import UserSignUpScreen from "../screens/userScreens/userSignUpScreen/UserSignUpScreen";
 import UserLoginScreen from "../screens/userScreens/userLoginScreen/UserLoginScreen";
-import { AuthContext } from "../authContext/AuthContextProvider";
+import BottomNavigator from "./UserBottomTabNavigator";
 
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
-  const { authState } = React.useContext(AuthContext);
-  const { userType } = authState;
-
-  const getInitialRouteName = () => {
-    if (userType === UserType?.User) {
-      return RouteNames?.userRouteNames?.userHome;
-    } else if (userType === UserType?.Seller) {
-      return RouteNames?.sellerRouteNames?.sellerHome;
-    } else {
-      return RouteNames?.mainScreen;
-    }
-  };
-
   return (
     <NavigationContainer style={navigatorStyles.container}>
       <Stack.Navigator initialRouteName={RouteNames?.mainScreen}>
@@ -59,8 +45,8 @@ const MainStackNavigator = () => {
           options={{ title: "Seller Login" }}
         />
         <Stack.Screen
-          name={RouteNames?.userRouteNames?.userHome}
-          component={Home}
+          name={RouteNames?.userRouteNames?.userHomeNavigator}
+          component={BottomNavigator}
           options={{ title: "Home", headerShown: false }}
         />
         <Stack.Screen

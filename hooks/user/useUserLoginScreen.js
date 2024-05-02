@@ -28,7 +28,7 @@ const useUserLoginScreen = () => {
 
   useEffect(() => {
     if (authState?.isAuthorized && authState?.userType === UserType?.User) {
-      navigate(RouteNames?.userRouteNames?.userHome);
+      navigate(RouteNames?.userRouteNames?.userHomeNavigator);
     }
   }, [authState?.userType]);
 
@@ -39,7 +39,7 @@ const useUserLoginScreen = () => {
         userType: UserType?.User,
       },
     });
-    navigate(RouteNames?.userRouteNames?.userHome);
+    navigate(RouteNames?.userRouteNames?.userHomeNavigator);
     console.log("submitted");
   };
 

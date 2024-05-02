@@ -17,7 +17,7 @@ const Home = () => {
     onCancelButtonClick,
     onTextInputFocus,
   } = useUserHome();
-  
+
   const { authState } = useContext(AuthContext);
   const { isAuthorized } = authState;
   const { navigate } = useNavigation();
