@@ -1,9 +1,10 @@
 import { createContext, useReducer } from "react";
 import { defaultStateReducer } from "../utils/CommonUtils";
+import { UserType } from "../constants/commonConstants";
 
 const initialState = {
-  isAuthorized: false,
-  userType: "",
+  isAuthorized: true,
+  userType: UserType.User,
 };
 
 export const AuthContext = createContext();

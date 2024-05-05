@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, KeyboardAvoidingView, Platform } from "react-native";
 import { userSignUpScreenStyles } from "./UserSignUpScreen.styles";
 import CustomInput from "../../../components/CustomInput/CustomInput";
 import CustomButton from "../../../components/CustomButton/CustomButton";
@@ -36,7 +36,9 @@ const UserSignUpScreen = () => {
   const { navigate } = useNavigation();
 
   return (
-    <View style={userSignUpScreenStyles.container}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} 
+     style={userSignUpScreenStyles.container}
+     keyboardVerticalOffset={40}>
       <View style={userSignUpScreenStyles?.icon}>
         <FontAwesome5 name="opencart" size={80} color={Colors.darkBlue} />
       </View>
@@ -82,7 +84,7 @@ const UserSignUpScreen = () => {
         iconSize={20}
         iconColor="black"
         secondaryIconType={Entypo}
-        secondaryIconName={showPassword ? 'eye-with-line':"eye"}
+        secondaryIconName={showPassword ? 'eye-with-line' : "eye"}
         secondaryIconSize={20}
         value={password}
         onChange={onChangePassword}
@@ -105,7 +107,7 @@ const UserSignUpScreen = () => {
         title="Sign Up"
         containerStyles={{ marginTop: 10 }}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

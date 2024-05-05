@@ -11,12 +11,11 @@ export const caraouselCardItemStyles = StyleSheet.create({
   image: {
     width: ITEM_WIDTH,
     height: 200,
-    // borderRadius:10,
+    borderRadius:10,
   },
   header: {
     color: Colors?.textColor,
     fontSize: 20,
-    // fontWeight: "bold",
     paddingLeft: 20,
     paddingTop: 10,
     fontFamily: "roboto-bold",

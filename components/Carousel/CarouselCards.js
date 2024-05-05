@@ -1,13 +1,11 @@
-import { useRef, useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import Carousel, { Pagination } from "react-native-snap-carousel";
+import { View, StyleSheet } from "react-native";
+import Carousel from "react-native-snap-carousel";
 // import Carousel from 'react-native-reanimated-carousel';
 import CarouselData from "../../data/CarouselData";
 import CarouselCardItem from "./CarouselCardItem";
 import {
   SLIDER_WIDTH,
   ITEM_WIDTH,
-  Colors,
 } from "../../constants/commonConstants";
 
 const CarouselCards = () => {

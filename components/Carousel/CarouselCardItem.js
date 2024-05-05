@@ -11,6 +11,7 @@ const CarouselCardItem = ({ item, index }) => {
       <Image
         source={{ uri: item.imgUrl }}
         style={caraouselCardItemStyles?.image}
+        resizeMode="stretch"
       />
       {item.title && (
         <Text style={caraouselCardItemStyles?.header}>{item.title}</Text>

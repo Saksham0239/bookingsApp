@@ -10,6 +10,7 @@ import HomeWrapper from "./HomeWrapper";
 import CardItem from "../../../components/CardItem/CardItem";
 import CardRow from "../../../components/CardRow/CardRow";
 import { cardImageUrls,cardText } from "../../../constants/CardSectionConstants";
+import { homeStyles } from "./Home.styles";
 
 const Home = () => {
   const {
@@ -24,8 +25,8 @@ const Home = () => {
   const { authState } = useContext(AuthContext);
   const { isAuthorized } = authState;
   const { navigate } = useNavigation();
-  const {homeApplainces,clothes,food,footWear,gymEquipments,books} = cardImageUrls;
-  const {homeApplainces:homeApplaincesText,clothes:clothesText,food:foodText,footWear:footWearText,gymEquipmentsText,booksText} = cardText;
+  const {homeApplainces,clothes,food,footWear,gymEquipments,books,sports,cosmetics} = cardImageUrls;
+  const {homeApplainces:homeApplaincesText,clothes:clothesText,food:foodText,footWear:footWearText,gymEquipmentsText,booksText,sportsText,cosmeticsText} = cardText;
 
   useEffect(() => {
     if (!isAuthorized) {
@@ -46,6 +47,7 @@ const Home = () => {
       {!searching && (
         <>
           <CarouselCards />
+          <Text style={homeStyles?.textExplore}>Explore Here</Text>
           <CardRow>
             <CardItem imageUri={homeApplainces} textLabel={homeApplaincesText}/>
             <CardItem imageUri={clothes} textLabel={clothesText}/>
@@ -57,6 +59,10 @@ const Home = () => {
           <CardRow>
             <CardItem imageUri={gymEquipments} textLabel={gymEquipmentsText}/>
             <CardItem imageUri={books} textLabel={booksText}/>
+          </CardRow>
+          <CardRow>
+            <CardItem imageUri={sports} textLabel={sportsText}/>
+            <CardItem imageUri={cosmetics} textLabel={cosmeticsText}/>
           </CardRow>
         </>
       )}
