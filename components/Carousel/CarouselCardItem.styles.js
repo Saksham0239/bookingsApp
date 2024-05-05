@@ -11,7 +11,7 @@ export const caraouselCardItemStyles = StyleSheet.create({
   image: {
     width: ITEM_WIDTH,
     height: 200,
-    borderRadius:10,
+    borderRadius: 10,
   },
   header: {
     color: Colors?.textColor,

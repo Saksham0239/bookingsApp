@@ -3,10 +3,7 @@ import Carousel from "react-native-snap-carousel";
 // import Carousel from 'react-native-reanimated-carousel';
 import CarouselData from "../../data/CarouselData";
 import CarouselCardItem from "./CarouselCardItem";
-import {
-  SLIDER_WIDTH,
-  ITEM_WIDTH,
-} from "../../constants/commonConstants";
+import { SLIDER_WIDTH, ITEM_WIDTH } from "../../constants/commonConstants";
 
 const CarouselCards = () => {
   return (

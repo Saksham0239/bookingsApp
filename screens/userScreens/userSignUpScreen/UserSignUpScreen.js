@@ -36,9 +36,11 @@ const UserSignUpScreen = () => {
   const { navigate } = useNavigation();
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} 
-     style={userSignUpScreenStyles.container}
-     keyboardVerticalOffset={40}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : null}
+      style={userSignUpScreenStyles.container}
+      keyboardVerticalOffset={40}
+    >
       <View style={userSignUpScreenStyles?.icon}>
         <FontAwesome5 name="opencart" size={80} color={Colors.darkBlue} />
       </View>
@@ -84,7 +86,7 @@ const UserSignUpScreen = () => {
         iconSize={20}
         iconColor="black"
         secondaryIconType={Entypo}
-        secondaryIconName={showPassword ? 'eye-with-line' : "eye"}
+        secondaryIconName={showPassword ? "eye-with-line" : "eye"}
         secondaryIconSize={20}
         value={password}
         onChange={onChangePassword}

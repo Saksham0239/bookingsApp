@@ -11,7 +11,7 @@ const initialState = {
   password: "",
   emailError: "",
   passwordError: "",
-  showPassword:false,
+  showPassword: false,
 };
 
 const useUserLoginScreen = () => {
@@ -61,13 +61,13 @@ const useUserLoginScreen = () => {
     });
   };
 
-  const toggleShowPassword = ()=>{
+  const toggleShowPassword = () => {
     dispatch({
-      payload:{
-        showPassword:!showPassword,
-      }
-    })
-  }
+      payload: {
+        showPassword: !showPassword,
+      },
+    });
+  };
 
   return {
     email,

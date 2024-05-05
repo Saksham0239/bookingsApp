@@ -1,8 +1,7 @@
-import {Text} from 'react-native';
+import { Text } from "react-native";
 
-const MenuScreen = ()=>{
-    
-    return <Text>Menu Screen</Text>
-}
+const MenuScreen = () => {
+  return <Text>Menu Screen</Text>;
+};
 
 export default MenuScreen;

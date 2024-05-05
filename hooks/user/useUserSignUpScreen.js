@@ -18,12 +18,12 @@ const initialState = {
   lastNameError: "",
   emailError: "",
   passwordError: "",
-  showPassword:false,
+  showPassword: false,
 };
 
 const useUserSignUpScreen = () => {
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
-  const {navigate} = useNavigation();
+  const { navigate } = useNavigation();
   const {
     firstName,
     lastName,
@@ -33,9 +33,9 @@ const useUserSignUpScreen = () => {
     lastNameError,
     emailError,
     passwordError,
-    showPassword
+    showPassword,
   } = state;
-  const {dispatchAuthState} = useContext(AuthContext);
+  const { dispatchAuthState } = useContext(AuthContext);
 
   const checkFormValidity = () => {
     if (
@@ -101,13 +101,13 @@ const useUserSignUpScreen = () => {
     });
   };
 
-  const toggleShowPassword = () =>{
+  const toggleShowPassword = () => {
     dispatch({
-      payload:{
-        showPassword:!showPassword,
-      }
-    })
-  }
+      payload: {
+        showPassword: !showPassword,
+      },
+    });
+  };
 
   return {
     firstName,

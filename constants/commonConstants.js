@@ -22,7 +22,7 @@ export const RouteNames = {
     userLogin: "userLogin",
     userSignUp: "userSignUp",
     userCart: "userCart",
-    userMenu:"userMenu",
+    userMenu: "userMenu",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",
