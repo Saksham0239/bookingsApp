@@ -1,13 +1,16 @@
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import { cartScreenStyles } from "./CartScreen.styles";
 import CardSection from "../../../components/CardSection/CardSection";
 
 const CartScreen = () => {
   return (
-    <View style={cartScreenStyles?.container}>
+    <ScrollView style={cartScreenStyles?.container}>
       <Text style={cartScreenStyles?.text}>Welcome to cart</Text>
       <CardSection />
-    </View>
+      <CardSection />
+      <CardSection />
+      <CardSection />
+    </ScrollView>
   );
 };
 
