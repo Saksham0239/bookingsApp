@@ -81,7 +81,7 @@ export const cardSectionStyles = StyleSheet.create({
     height: "20%",
     paddingLeft: 20,
     paddingTop: 5,
-    paddingRight:4,
+    paddingRight: 4,
     justifyContent: "space-between",
     alignItems: "center",
   },

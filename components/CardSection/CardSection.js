@@ -3,6 +3,7 @@ import { cardSectionStyles } from "./CardSection.styles";
 import CardButton from "../CardButton/CardButton";
 
 const CardSection = ({
+  id,
   inStock,
   productName,
   productImageUri,
@@ -12,7 +13,9 @@ const CardSection = ({
   discountedPrice,
   originalPrice,
   quantity,
+  cartContextHooks,
 }) => {
+  const { removeProductFromCart } = cartContextHooks;
   return (
     <View style={cardSectionStyles?.container}>
       <View style={cardSectionStyles?.upperContainer}>
@@ -62,8 +65,21 @@ const CardSection = ({
         </View>
       </View>
       <View style={cardSectionStyles?.middleContainer}>
-        {inStock ? <CardButton amount={quantity} /> : <View></View>}
-        <Text style={cardSectionStyles?.smallButton}>delete</Text>
+        {inStock ? (
+          <CardButton
+            productId={id}
+            amount={quantity}
+            cartContextHooks={cartContextHooks}
+          />
+        ) : (
+          <View></View>
+        )}
+        <Text
+          style={cardSectionStyles?.smallButton}
+          onPress={() => removeProductFromCart(id)}
+        >
+          delete
+        </Text>
         <Text style={cardSectionStyles?.smallButton}>Add to wishlist</Text>
       </View>
       <View style={cardSectionStyles?.lowerContainer}>

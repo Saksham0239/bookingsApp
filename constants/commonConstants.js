@@ -14,8 +14,8 @@ export const Colors = {
   textGreen: "#39AD48",
   textRed: "#ff0f0f",
   veryLightGrey: "#E6E6E6",
-  lightYellow:"#FFFFED",
-  ivory:'#FFA500',
+  lightYellow: "#FFFFED",
+  ivory: "#FFA500",
 };
 
 export const RouteNames = {

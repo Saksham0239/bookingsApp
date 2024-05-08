@@ -2,18 +2,15 @@ import { useReducer } from "react";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 
 const initialState = {
-    cartItems:[],
-}
+  cartItems: [],
+};
 
 const useCartScreen = () => {
+  const [state, dispatch] = useReducer(defaultStateReducer, initialState);
 
-    const [state,dispatch] = useReducer(defaultStateReducer,initialState);
+  const { cartItems } = state;
 
-    const {cartItems} = state;
-
-    
-
-    return cartItems;
+  return cartItems;
 };
 
 export default useCartScreen;

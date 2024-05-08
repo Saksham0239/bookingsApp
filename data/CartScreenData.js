@@ -14,8 +14,7 @@ const cartScreenData = [
   },
   {
     productName: "Nivea Creme",
-    productImageUri:
-      "https://m.media-amazon.com/images/I/71SCEu7Bu0L.jpg",
+    productImageUri: "https://m.media-amazon.com/images/I/71SCEu7Bu0L.jpg",
     productDetails: "50+ brought previous month",
     percentageDiscount: 15,
     saleName: "Great Summer Sale",
