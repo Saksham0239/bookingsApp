@@ -12,6 +12,7 @@ import SellerLoginScreen from "../screens/sellerScreens/sellerLoginScreen/Seller
 import UserSignUpScreen from "../screens/userScreens/userSignUpScreen/UserSignUpScreen";
 import UserLoginScreen from "../screens/userScreens/userLoginScreen/UserLoginScreen";
 import BottomNavigator from "./UserBottomTabNavigator";
+import ProductsScreen from "../screens/userScreens/userProductsScreen/ProductsScreen";
 
 const Stack = createStackNavigator();
 
@@ -53,6 +54,11 @@ const MainStackNavigator = () => {
           name={RouteNames?.userRouteNames?.userSettings}
           component={Settings}
           options={{ title: "Settings" }}
+        />
+        <Stack.Screen
+          name={RouteNames?.userRouteNames?.userProducts}
+          component={ProductsScreen}
+          options={{ title: "Products" }}
         />
         <Stack.Screen
           name={RouteNames?.sellerRouteNames?.sellerHome}

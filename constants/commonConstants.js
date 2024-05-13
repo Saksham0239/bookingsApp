@@ -7,7 +7,7 @@ export const Colors = {
   offWhite: "#FAF9F6",
   white: "#FFFFFF",
   lightBlue: "#add8e6",
-  linkBlue: "0000EE",
+  linkBlue: "#0000EE",
   lightGrey: "#D3D3D3",
   cobaltBlue: "#079CFF",
   textColor: "#222",
@@ -16,6 +16,7 @@ export const Colors = {
   veryLightGrey: "#E6E6E6",
   lightYellow: "#FFFFED",
   ivory: "#FFA500",
+  darkGrey: "#636363",
 };
 
 export const RouteNames = {
@@ -28,6 +29,7 @@ export const RouteNames = {
     userSignUp: "userSignUp",
     userCart: "userCart",
     userMenu: "userMenu",
+    userProducts: "userProducts",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",
