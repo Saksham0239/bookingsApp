@@ -5,15 +5,16 @@ import { Colors, RouteNames } from "../constants/commonConstants";
 import { Entypo, Feather } from "@expo/vector-icons";
 import CartScreen from "../screens/userScreens/userCartScreen/CartScreen";
 import MenuScreen from "../screens/userScreens/userMenuScreen/MenuScreen";
+import HomeStackNavigator from "./HomeStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
   return (
-    <Tab.Navigator initialRouteName={RouteNames?.userRouteNames?.userHome}>
+    <Tab.Navigator initialRouteName={RouteNames?.userRouteNames?.homeNavigator}>
       <Tab.Screen
-        name={RouteNames?.userRouteNames?.userHome}
-        component={Home}
+        name={RouteNames?.userRouteNames?.homeNavigator}
+        component={HomeStackNavigator}
         options={{
           headerShown: false,
           tabBarLabel: "Home",

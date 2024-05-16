@@ -1,22 +1,22 @@
 //all the products will be rendered here
-import { useState } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import ProductCard from "../../../components/ProductCard/ProductCard";
 import { productScreenStyles } from "./ProductsScreen.styles";
-import { useEffect } from "react";
-import { prepareProductScreenData } from "../../../data/ProductData";
+import { ApplicationContext } from "../../../AppContext/appContextProvider";
+import { useContext, useEffect } from "react";
 
 const ProductsScreen = () => {
   const { params } = useRoute();
   const { searchString } = params;
-  const [productData, setProductData] = useState([]);
-  console.log(searchString);
+  const { useApplicationData } = useContext(ApplicationContext);
+  const { productData, loadFilteredData } = useApplicationData({
+    searchString,
+  });
 
   useEffect(() => {
-    const productData = prepareProductScreenData();
-    setProductData(productData);
-  }, []);
+    loadFilteredData();
+  }, [searchString]);
 
   return (
     <ScrollView style={productScreenStyles?.container}>

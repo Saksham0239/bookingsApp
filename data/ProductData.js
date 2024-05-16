@@ -14,6 +14,7 @@ const productScreenData = [
     rating: 4,
     numberOfPeopleRated: 1200,
     deliveryTime: "2 working days",
+    category: ["Cola", "Soft Drinks", "Cold Drinks", "Beverages"],
   },
   {
     productName: "Nivea Creme",
@@ -27,6 +28,7 @@ const productScreenData = [
     rating: 5,
     numberOfPeopleRated: 1500,
     deliveryTime: "3 working days",
+    category: ["Nivea Creme", "creams", "moisturizer"],
   },
   {
     productName: "MB Peanut Butter",
@@ -41,6 +43,7 @@ const productScreenData = [
     rating: 3.2,
     numberOfPeopleRated: 5000,
     deliveryTime: "Today evening",
+    category: ["MB Peanut Butter", "Peanut Butters", "butter"],
   },
   {
     productName: "Avvatar Whey Protein",
@@ -55,6 +58,7 @@ const productScreenData = [
     rating: 4.2,
     numberOfPeopleRated: 800,
     deliveryTime: "3 working days",
+    category: ["Avvatar Whey Protein", "Whey Protein", "Protein Powder"],
   },
 ];
 

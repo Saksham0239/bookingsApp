@@ -6,6 +6,7 @@ import MainStackNavigator from "./navigators/MainStackNavigator";
 import AuthContextProvider from "./authContext/AuthContextProvider";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import CartContextProvider from "./cartContext/cartContextProvider";
+import AppContextProvider from "./AppContext/appContextProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -18,9 +19,11 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} onLayout={onLayoutLoadHandler}>
         <AuthContextProvider>
-          <CartContextProvider>
-            <MainStackNavigator />
-          </CartContextProvider>
+          <AppContextProvider>
+            <CartContextProvider>
+              <MainStackNavigator />
+            </CartContextProvider>
+          </AppContextProvider>
         </AuthContextProvider>
       </SafeAreaView>
     </SafeAreaProvider>

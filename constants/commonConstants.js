@@ -30,6 +30,7 @@ export const RouteNames = {
     userCart: "userCart",
     userMenu: "userMenu",
     userProducts: "userProducts",
+    homeNavigator: "homeNavigator",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",

@@ -1,8 +1,9 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useContext } from "react";
 import { Alert, Keyboard, View } from "react-native";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import { useNavigation } from "@react-navigation/native";
 import { generateSearchData } from "../../components/SearchBar/SearchData";
+import { ApplicationContext } from "../../AppContext/appContextProvider";
 
 const initialState = {
   cart: [],
@@ -12,12 +13,15 @@ const initialState = {
 };
 
 const useUserHome = () => {
+  const { useApplicationData } = useContext(ApplicationContext);
+  const { productData, loadAllData } = useApplicationData({ searchString: "" });
   const { addListener, dispatch } = useNavigation();
   const [state, dispatchState] = useReducer(defaultStateReducer, initialState);
   const { searchText, searchData, searching } = state;
 
   useEffect(() => {
     backButtonHandler();
+    loadAllData();
   }, []);
 
   const backButtonHandler = () => {
@@ -52,7 +56,7 @@ const useUserHome = () => {
 
   const onChangeSearchText = (text) => {
     //api call
-    const data = generateSearchData();
+    const data = generateSearchData(productData);
     const filteredData = filterSearchData(text, data);
 
     dispatchState({
@@ -75,7 +79,7 @@ const useUserHome = () => {
   };
 
   const onTextInputFocus = () => {
-    const data = generateSearchData();
+    const data = generateSearchData(productData);
 
     dispatchState({
       payload: {
