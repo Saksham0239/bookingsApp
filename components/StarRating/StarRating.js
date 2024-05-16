@@ -9,18 +9,14 @@ const StarRating = ({ rating }) => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    console.log("rendering");
     readyStarArray();
   }, []);
 
   const readyStarArray = () => {
     const wholeRating = Math.floor(rating);
     const halfRating = rating > wholeRating;
-    console.log("wholeRating ", wholeRating);
-    console.log("halfRating ", halfRating);
     let starsArr = [];
     for (let index = 0; index < wholeRating; index++) {
-      console.log("pushed");
       starsArr.push(
         <FontAwesome
           key={uuid.v4()}
@@ -41,8 +37,6 @@ const StarRating = ({ rating }) => {
         />,
       );
     }
-    console.log(starsArr.length);
-
     let remLength = 5 - starsArr.length;
 
     for (let i = 0; i < remLength; i++) {
@@ -55,7 +49,6 @@ const StarRating = ({ rating }) => {
         />,
       );
     }
-    console.log(starsArr);
     setStars(starsArr);
   };
 

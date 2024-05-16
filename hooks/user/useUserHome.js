@@ -18,7 +18,6 @@ const useUserHome = () => {
 
   useEffect(() => {
     backButtonHandler();
-    console.log("rerendering");
   }, []);
 
   const backButtonHandler = () => {
@@ -76,7 +75,6 @@ const useUserHome = () => {
   };
 
   const onTextInputFocus = () => {
-    console.log("text focused");
     const data = generateSearchData();
 
     dispatchState({

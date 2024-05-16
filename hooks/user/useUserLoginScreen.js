@@ -41,7 +41,6 @@ const useUserLoginScreen = () => {
       },
     });
     navigate(RouteNames?.userRouteNames?.userHomeNavigator);
-    console.log("submitted");
   };
 
   const onChangeEmail = (value) => {

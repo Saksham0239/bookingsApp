@@ -61,7 +61,6 @@ const useUserSignUpScreen = () => {
       },
     });
     navigate(RouteNames?.userRouteNames?.userHomeNavigator);
-    console.log("submitted");
   };
 
   const onChangeFirstName = (value) => {

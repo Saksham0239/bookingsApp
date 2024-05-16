@@ -47,7 +47,6 @@ const useApp = () => {
   }, []);
 
   const onLayoutLoadHandler = async () => {
-    console.log(isAppLoaded);
     if (isAppLoaded) {
       await SplashScreen.hideAsync();
     }

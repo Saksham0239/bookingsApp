@@ -7,9 +7,11 @@ export const productCardStyles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     borderRadius: 40,
+    marginVertical: 10,
   },
   leftContainer: {
     width: "45%",
+    backgroundColor: Colors?.offWhite,
   },
   image: {
     width: "100%",
@@ -26,7 +28,7 @@ export const productCardStyles = StyleSheet.create({
     flexDirection: "row",
   },
   titleText: {
-    fontSize: 17,
+    fontSize: 20,
     fontFamily: "roboto-bold",
   },
   boughtText: {
