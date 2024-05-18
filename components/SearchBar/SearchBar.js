@@ -11,6 +11,7 @@ const SearchBar = ({
   filteredData,
   onTextFocus,
   searching,
+  clickHandler,
 }) => {
   const textSearchRef = useRef(null);
 
@@ -21,7 +22,7 @@ const SearchBar = ({
   });
 
   const renderItemsFlatList = ({ item }) => {
-    return <Item item={item} />;
+    return <Item item={item} clickHandler={clickHandler} />;
   };
 
   return (

@@ -18,6 +18,9 @@ const HomeStackNavigator = () => {
       <Stack.Screen
         name={RouteNames?.userRouteNames?.userProducts}
         component={ProductsScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );

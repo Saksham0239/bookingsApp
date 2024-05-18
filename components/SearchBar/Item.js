@@ -3,7 +3,7 @@ import { Colors, RouteNames } from "../../constants/commonConstants";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const Item = ({ item }) => {
+const Item = ({ item, clickHandler }) => {
   const { navigate } = useNavigation();
 
   const handleClick = () => {
@@ -12,7 +12,10 @@ const Item = ({ item }) => {
     });
   };
   return (
-    <TouchableOpacity style={itemStyles.container} onPress={handleClick}>
+    <TouchableOpacity
+      style={itemStyles.container}
+      onPress={clickHandler ? () => clickHandler(item.title) : handleClick}
+    >
       <Text style={itemStyles?.text}>{item.title}</Text>
       <Feather name="arrow-up-right" size={24} color="black" />
     </TouchableOpacity>

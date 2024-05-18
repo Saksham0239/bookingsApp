@@ -6,17 +6,37 @@ import { productScreenStyles } from "./ProductsScreen.styles";
 import { ApplicationContext } from "../../../AppContext/appContextProvider";
 import { useContext } from "react";
 import useProductScreen from "../../../hooks/user/useProductScreen";
+import SearchBar from "../../../components/SearchBar/SearchBar";
+import HomeWrapper from "../userHomeScreen/HomeWrapper";
 
 const ProductsScreen = () => {
   const { params } = useRoute();
   const { searchString } = params;
-  useProductScreen({ searchString });
+  const {
+    onChangeSearchText,
+    searchText,
+    onCancelButtonClick,
+    searchData,
+    onTextInputFocus,
+    searching,
+    itemClickHandler,
+  } = useProductScreen({ searchString });
   const { appState } = useContext(ApplicationContext);
   const { productScreenFilteredData } = appState;
-
+  console.log("searching", searching);
   return (
-    <ScrollView style={productScreenStyles?.container}>
+    <HomeWrapper style={productScreenStyles?.container} searching={searching}>
+      <SearchBar
+        onChangeSearchText={onChangeSearchText}
+        searchText={searchText}
+        onCancelButtonClick={onCancelButtonClick}
+        filteredData={searchData}
+        onTextFocus={onTextInputFocus}
+        searching={searching}
+        clickHandler={itemClickHandler}
+      />
       {productScreenFilteredData &&
+        !searching &&
         productScreenFilteredData.map((product) => {
           return (
             <ProductCard
@@ -34,7 +54,7 @@ const ProductsScreen = () => {
             />
           );
         })}
-    </ScrollView>
+    </HomeWrapper>
   );
 };
 
