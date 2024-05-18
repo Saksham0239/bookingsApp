@@ -8,6 +8,8 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { RouteNames, UserType } from "../../constants/commonConstants";
 import { AuthContext } from "../../authContext/AuthContextProvider";
+import { ApplicationContext } from "../../AppContext/appContextProvider";
+import { prepareProductScreenData } from "../../data/ProductData";
 
 const initialState = {
   firstName: "",
@@ -23,6 +25,7 @@ const initialState = {
 
 const useUserSignUpScreen = () => {
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
+  const { dispatchAppState } = useContext(ApplicationContext);
   const { navigate } = useNavigation();
   const {
     firstName,
@@ -58,6 +61,11 @@ const useUserSignUpScreen = () => {
       payload: {
         isAuthorized: true,
         userType: UserType?.User,
+      },
+    });
+    dispatchAppState({
+      payload: {
+        productData: prepareProductScreenData(),
       },
     });
     navigate(RouteNames?.userRouteNames?.userHomeNavigator);

@@ -5,6 +5,8 @@ import { AuthContext } from "../../authContext/AuthContextProvider";
 import { UserType } from "../../constants/commonConstants";
 import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "../../constants/commonConstants";
+import { ApplicationContext } from "../../AppContext/appContextProvider";
+import { prepareProductScreenData } from "../../data/ProductData";
 
 const initialState = {
   email: "",
@@ -16,6 +18,7 @@ const initialState = {
 
 const useUserLoginScreen = () => {
   const { navigate } = useNavigation();
+  const { dispatchAppState } = useContext(ApplicationContext);
   const { authState, dispatchAuthState } = useContext(AuthContext);
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
 
@@ -29,6 +32,11 @@ const useUserLoginScreen = () => {
 
   useEffect(() => {
     if (authState?.isAuthorized && authState?.userType === UserType?.User) {
+      dispatchAppState({
+        payload: {
+          productData: prepareProductScreenData(),
+        },
+      });
       navigate(RouteNames?.userRouteNames?.userHomeNavigator);
     }
   }, [authState?.userType]);

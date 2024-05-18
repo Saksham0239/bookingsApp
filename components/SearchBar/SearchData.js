@@ -1,6 +1,7 @@
 import uuid from "react-native-uuid";
 
 export const generateSearchData = (productData) => {
+  // console.log('productData ',productData);
   const SearchData = [];
 
   productData.map((product) => {

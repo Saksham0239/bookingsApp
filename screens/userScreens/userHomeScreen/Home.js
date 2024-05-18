@@ -14,7 +14,6 @@ import {
   cardText,
 } from "../../../constants/CardSectionConstants";
 import { homeStyles } from "./Home.styles";
-import { ApplicationContext } from "../../../AppContext/appContextProvider";
 
 const Home = () => {
   const {

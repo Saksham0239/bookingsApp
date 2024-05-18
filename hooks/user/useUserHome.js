@@ -13,15 +13,12 @@ const initialState = {
 };
 
 const useUserHome = () => {
-  const { useApplicationData } = useContext(ApplicationContext);
-  const { productData, loadAllData } = useApplicationData({ searchString: "" });
+  const { appState } = useContext(ApplicationContext);
   const { addListener, dispatch } = useNavigation();
   const [state, dispatchState] = useReducer(defaultStateReducer, initialState);
   const { searchText, searchData, searching } = state;
-
   useEffect(() => {
     backButtonHandler();
-    loadAllData();
   }, []);
 
   const backButtonHandler = () => {
@@ -48,7 +45,7 @@ const useUserHome = () => {
 
   const filterSearchData = (text, data) => {
     const filteredArr = data.filter((el) => {
-      return el.title.toLowerCase().includes(text);
+      return el.title.toLowerCase().includes(text.toLowerCase());
     });
 
     return filteredArr;
@@ -56,7 +53,7 @@ const useUserHome = () => {
 
   const onChangeSearchText = (text) => {
     //api call
-    const data = generateSearchData(productData);
+    const data = generateSearchData(appState?.productData);
     const filteredData = filterSearchData(text, data);
 
     dispatchState({
@@ -79,7 +76,7 @@ const useUserHome = () => {
   };
 
   const onTextInputFocus = () => {
-    const data = generateSearchData(productData);
+    const data = generateSearchData(appState?.productData);
 
     dispatchState({
       payload: {
