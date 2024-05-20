@@ -20,6 +20,7 @@ const ProductsScreen = () => {
     onTextInputFocus,
     searching,
     itemClickHandler,
+    productClickHandler,
   } = useProductScreen({ searchString });
   const { appState } = useContext(ApplicationContext);
   const { productScreenFilteredData } = appState;
@@ -40,7 +41,9 @@ const ProductsScreen = () => {
         productScreenFilteredData.map((product) => {
           return (
             <ProductCard
+              clickHandler={productClickHandler}
               key={product.id}
+              productId={product.id}
               productName={product.productName}
               imgSrc={product.productImageUri}
               rating={product.rating}

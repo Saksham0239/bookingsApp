@@ -31,6 +31,7 @@ export const RouteNames = {
     userMenu: "userMenu",
     userProducts: "userProducts",
     homeNavigator: "homeNavigator",
+    productScreen: "productScreen",
   },
   sellerRouteNames: {
     sellerHome: "sellerHome",

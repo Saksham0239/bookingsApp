@@ -3,6 +3,7 @@ import { productCardStyles } from "./ProductCard.styles";
 import StarRating from "../StarRating/StarRating";
 
 const ProductCard = ({
+  productId,
   imgSrc,
   productName,
   rating,
@@ -12,10 +13,11 @@ const ProductCard = ({
   discountedPrice,
   originalPrice,
   deliveryTime,
+  clickHandler,
 }) => {
   return (
     <Pressable
-      onPress={() => console.log("clicked")}
+      onPress={() => clickHandler(productId)}
       style={productCardStyles?.container}
     >
       <View style={productCardStyles?.leftContainer}>

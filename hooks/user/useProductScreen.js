@@ -3,6 +3,8 @@ import { Keyboard } from "react-native";
 import { ApplicationContext } from "../../AppContext/appContextProvider";
 import { defaultStateReducer } from "../../utils/CommonUtils";
 import { generateSearchData } from "../../components/SearchBar/SearchData";
+import { useNavigation } from "@react-navigation/native";
+import { RouteNames } from "../../constants/commonConstants";
 
 const initialState = {
   cart: [],
@@ -15,6 +17,7 @@ const useProductScreen = ({ searchString }) => {
   const { appState, dispatchAppState } = useContext(ApplicationContext);
   const { productData } = appState;
   const [state, dispatch] = useReducer(defaultStateReducer, initialState);
+  const { navigate } = useNavigation();
 
   const { cart, searchText, searchData, searching } = state;
 
@@ -105,6 +108,11 @@ const useProductScreen = ({ searchString }) => {
     });
   };
 
+  const productClickHandler = (id) => {
+    console.log("productId ", id);
+    navigate(RouteNames?.userRouteNames?.productScreen, { productId: id });
+  };
+
   return {
     cart,
     searchText,
@@ -115,6 +123,7 @@ const useProductScreen = ({ searchString }) => {
     onCancelButtonClick,
     onTextInputFocus,
     itemClickHandler,
+    productClickHandler,
   };
 };
 
