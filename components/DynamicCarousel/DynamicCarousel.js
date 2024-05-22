@@ -5,7 +5,6 @@ import DynamicCarouselItem from "./DynamicCarouselItem";
 
 const DynamicCarousel = ({ caraouselImages }) => {
   const carouselItemWidth = Dimensions.get("window").width;
-  console.log("caraouselImages", caraouselImages);
   return (
     <View style={{ flex: 1 }}>
       <Carousel

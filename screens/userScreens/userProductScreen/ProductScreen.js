@@ -4,6 +4,7 @@ import DynamicCarousel from "../../../components/DynamicCarousel/DynamicCarousel
 import HomeWrapper from "../userHomeScreen/HomeWrapper";
 import useProduct from "../../../hooks/user/useProduct";
 import SearchBar from "../../../components/SearchBar/SearchBar";
+import ProductHeader from "./components/ProductHeader";
 
 const ProductScreen = () => {
   const { params } = useRoute();
@@ -34,6 +35,7 @@ const ProductScreen = () => {
       />
       {!searching && (
         <>
+          <ProductHeader />
           <DynamicCarousel caraouselImages={productInfo?.images} />
         </>
       )}
