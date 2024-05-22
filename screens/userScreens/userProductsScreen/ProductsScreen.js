@@ -24,7 +24,6 @@ const ProductsScreen = () => {
   } = useProductScreen({ searchString });
   const { appState } = useContext(ApplicationContext);
   const { productScreenFilteredData } = appState;
-  console.log("searching", searching);
   return (
     <HomeWrapper style={productScreenStyles?.container} searching={searching}>
       <SearchBar

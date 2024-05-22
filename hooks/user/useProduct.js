@@ -1,4 +1,4 @@
-import { useEffect, useContext, useReducer } from "react";
+import { useContext, useReducer } from "react";
 import { Keyboard } from "react-native";
 import { ApplicationContext } from "../../AppContext/appContextProvider";
 import { defaultStateReducer } from "../../utils/CommonUtils";
@@ -6,29 +6,18 @@ import { generateSearchData } from "../../components/SearchBar/SearchData";
 import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "../../constants/commonConstants";
 
-const initialState = {
-  cart: [],
+const initiaState = {
   searchText: "",
   searchData: [],
   searching: false,
 };
 
-const useProductScreen = ({ searchString }) => {
+const useProduct = ({ productId }) => {
   const { appState, dispatchAppState } = useContext(ApplicationContext);
   const { productData } = appState;
-  const [state, dispatch] = useReducer(defaultStateReducer, initialState);
+  const [state, dispatch] = useReducer(defaultStateReducer, initiaState);
+  const { searchText, searchData, searching } = state;
   const { navigate } = useNavigation();
-
-  const { cart, searchText, searchData, searching } = state;
-
-  useEffect(() => {
-    filterAndDispatchData(searchString);
-    dispatch({
-      payload: {
-        searchText: searchString,
-      },
-    });
-  }, []);
 
   const filterAndDispatchData = (searchProduct) => {
     if (searchProduct) {
@@ -96,22 +85,22 @@ const useProductScreen = ({ searchString }) => {
   };
 
   const itemClickHandler = (title) => {
-    filterAndDispatchData(title);
-    dispatch({
-      payload: {
-        searchData: [],
-        searchText: title,
-        searching: false,
-      },
-    });
+    navigate(RouteNames?.userRouteNames?.userProducts, { searchString: title });
   };
 
   const productClickHandler = (id) => {
     navigate(RouteNames?.userRouteNames?.productScreen, { productId: id });
   };
 
+  const fetchProductDetails = () => {
+    const filteredProduct = productData.filter((data) => {
+      return data.id === productId;
+    });
+
+    return filteredProduct[0].productInformation;
+  };
+
   return {
-    cart,
     searchText,
     searchData,
     searching,
@@ -121,7 +110,8 @@ const useProductScreen = ({ searchString }) => {
     onTextInputFocus,
     itemClickHandler,
     productClickHandler,
+    fetchProductDetails,
   };
 };
 
-export default useProductScreen;
+export default useProduct;

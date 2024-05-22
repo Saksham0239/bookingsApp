@@ -15,6 +15,22 @@ const productScreenData = [
     numberOfPeopleRated: 1200,
     deliveryTime: "2 working days",
     category: ["Cola", "Soft Drinks", "Cold Drinks", "Beverages"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Nivea Creme",
@@ -29,6 +45,22 @@ const productScreenData = [
     numberOfPeopleRated: 1500,
     deliveryTime: "3 working days",
     category: ["Nivea Creme", "creams", "moisturizer"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "MB Peanut Butter",
@@ -44,6 +76,22 @@ const productScreenData = [
     numberOfPeopleRated: 5000,
     deliveryTime: "Today evening",
     category: ["MB Peanut Butter", "Peanut Butters", "butter"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Avvatar Whey Protein",
@@ -59,6 +107,22 @@ const productScreenData = [
     numberOfPeopleRated: 800,
     deliveryTime: "3 working days",
     category: ["Avvatar Whey Protein", "Whey Protein", "Protein Powder"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Sprite",
@@ -74,6 +138,22 @@ const productScreenData = [
     numberOfPeopleRated: 900,
     deliveryTime: "2 working days",
     category: ["Sprite", "Soft Drinks", "Cold Drinks", "Beverages"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Lipton Green Tea",
@@ -89,6 +169,22 @@ const productScreenData = [
     numberOfPeopleRated: 1200,
     deliveryTime: "3 working days",
     category: ["Lipton Green Tea", "Tea", "Green Tea", "Beverages"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Red Bull Energy Drink",
@@ -109,6 +205,22 @@ const productScreenData = [
       "Cold Drinks",
       "Beverages",
     ],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
   {
     productName: "Pepsi",
@@ -124,6 +236,22 @@ const productScreenData = [
     numberOfPeopleRated: 1100,
     deliveryTime: "2 working days",
     category: ["Pepsi", "Soft Drinks", "Cold Drinks", "Beverages"],
+    productInformation: {
+      images: [
+        {
+          imgUrl:
+            "https://www.bigbasket.com/media/uploads/p/xxl/40032983_8-sprite-soft-drink.jpg",
+        },
+        {
+          imgUrl:
+            "https://www.jiomart.com/images/product/original/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg?im=Resize=(1000,1000)",
+        },
+        {
+          imgUrl:
+            "https://brandstruck.co/wp-content/uploads/2016/04/Sprite-brand-strategy-positioning.jpeg",
+        },
+      ],
+    },
   },
 ];
 

@@ -4,7 +4,7 @@ import { Colors, ITEM_WIDTH } from "../../constants/commonConstants";
 export const dynamicCarouselStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors?.white,
+    backgroundColor: Colors?.offWhite,
     width: ITEM_WIDTH,
     paddingBottom: 10,
   },
